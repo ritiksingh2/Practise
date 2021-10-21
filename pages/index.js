@@ -1,0 +1,108 @@
+import Head from "next/head";
+import Link from "next/link";
+import User from "./User";
+import { useState } from "react";
+import { useEffect, useContext } from "react";
+import { userContext } from "../context/userContext";
+
+export default function Home() {
+  const { values, set } = useContext(userContext);
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <Head>
+        <title>PythonMate Assignment</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <body>
+        <div className="flex items-center min-h-screen bg-gray-50">
+          <div className="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
+            <div className="flex flex-col md:flex-row">
+              <div className="h-32 md:h-auto md:w-1/2">
+                <img
+                  className="object-cover w-full h-full"
+                  src="https://source.unsplash.com/user/erondu/1600x900"
+                  alt="img"
+                />
+              </div>
+              <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                <div className="w-full">
+                  <div className="flex justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-20 h-20 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+                      />
+                    </svg>
+                  </div>
+                  <h1 className="mb-4 text-2xl font-bold text-center text-gray-700">
+                    Register to Ritzz
+                  </h1>
+                  <div>
+                    <label className="block text-sm">Name</label>
+                    <input
+                      value={values.name}
+                      onChange={set("name")}
+                      type="text"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      placeholder=""
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm">Profession</label>
+                    <input
+                      value={values.profession}
+                      onChange={set("profession")}
+                      type="text"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      placeholder=""
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm">E-mail</label>
+                    <input
+                      value={values.email}
+                      onChange={set("email")}
+                      type="email"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      placeholder=""
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm">Age </label>
+                    <input
+                      value={values.age}
+                      onChange={set("age")}
+                      type="number"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      placeholder=""
+                    />
+                  </div>
+
+                  <Link href="/User">
+                    <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                      Register
+                    </button>
+                  </Link>
+
+                  <hr className="my-8" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </div>
+  );
+}
